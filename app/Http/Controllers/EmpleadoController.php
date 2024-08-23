@@ -7,7 +7,16 @@ use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
 {
-    public function store(Request $request){
+    
+
+     public function mostrarEmpleados(){
+
+        $empleados = Empleado::All();
+        return view('empleados', compact('empleados'));
+     }
+
+
+     public function guardarEmpleado(Request $request){
          
 
         $empleado=  New Empleado();
@@ -21,12 +30,6 @@ class EmpleadoController extends Controller
 
         return redirect()->route('empleados.mostrar');
 
-     }
-
-     public function mostrarEmpleados(){
-
-        $empleados = Empleado::All();
-        return view('empleados', compact('empleados'));
      }
 
 }
